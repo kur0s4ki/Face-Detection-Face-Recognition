@@ -23,5 +23,25 @@
   * *Algebra* : Uses geometric formulas about eyes positions , to estimate the distance. **(Better Estimation)**
   * *Estimation* : Uses special formula to estimate distance.
   * *Perimeter* : Uses the opencv box perimeter to estimate distance.
+  
+# IMPORTANT 
 
+## DummyFuncUnknown :
+* Execute One time , when an UNKNOWN person gets within the detection distance , he wil automatically be enrolled and affected an ID .
+
+* This function triggers One time per user , after being added to the DB , and return its affected ID.
+  * Message Shown on the Console : 
+  
+         [+] ==> UNKNOWN USER ADDED TO BD. 
+         [+] AFFECTING ID : {} TO THE USER
+     
+## DummyFuncEnrolled :
+* Execute whenever a known person gets within detection distance.
+
+* This function triggers every time a known user is within detection distance , and returns its ID.
+  * Message Shown on the Console : 
+  
+        [+] KNOWN USER.
+        [+] AFFECTED ID IS : {}
+     
 
