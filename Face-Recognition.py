@@ -85,7 +85,7 @@ def register(face_encoding, face_image):
         "face_image": face_image
     })
 
-    return known_face_metadata[0]['id']
+    return known_face_metadata[-1]['id']
 
 
 def find_faces(face_encoding):
