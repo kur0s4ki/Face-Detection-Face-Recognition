@@ -52,7 +52,7 @@ def get_jetson_gstreamer_source(capture_width=1280, capture_height=720, display_
             'nvarguscamerasrc ! video/x-raw(memory:NVMM), ' +
             'width={}, height=(int){}, '.format(int(capture_width), int(capture_height)) +
             'format=(string)NV12, framerate=(fraction){}/1 ! '.format(framerate) +
-            'nvvidconv flip-method={flip_method} ! '.format(flip_method) +
+            'nvvidconv flip-method={} ! '.format(flip_method) +
             'video/x-raw, width=(int){}, height=(int){}, format=(string)BGRx ! '.format(int(display_width), int(display_height)) +
             'videoconvert ! video/x-raw, format=(string)BGR ! appsink'
     )
