@@ -49,13 +49,14 @@ def running_on_jetson_nano():
 def get_jetson_gstreamer_source(capture_width=1280, capture_height=720, display_width=1280, display_height=720,
                                 framerate=60, flip_method=0):
     return (
-            fstring('nvarguscamerasrc ! video/x-raw(memory:NVMM), ') +
-            fstring('width=(int){capture_width}, height=(int){capture_height}, ') +
-            fstring('format=(string)NV12, framerate=(fraction){framerate}/1 ! ') +
-            fstring('nvvidconv flip-method={flip_method} ! ') +
-            fstring('video/x-raw, width=(int){display_width}, height=(int){display_height}, format=(string)BGRx ! ') +
-            fstring('videoconvert ! video/x-raw, format=(string)BGR ! appsink')
+            'nvarguscamerasrc ! video/x-raw(memory:NVMM), ' +
+            'width={}, height=(int){}, '.format(int(capture_width), int(capture_height)) +
+            'format=(string)NV12, framerate=(fraction){}/1 ! '.format(framerate) +
+            'nvvidconv flip-method={flip_method} ! '.format(flip_method) +
+            'video/x-raw, width=(int){}, height=(int){}, format=(string)BGRx ! '.format(int(display_width), int(display_height)) +
+            'videoconvert ! video/x-raw, format=(string)BGR ! appsink'
     )
+
 
 
 def get_ID(method):
